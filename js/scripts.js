@@ -1,3 +1,24 @@
+// Business Logic for Receipt
+function Receipt() {
+  this.pizzas = [];
+  this.currentId = 0;
+}
+Receipt.prototype.addPizza = function (pizza) {
+  pizza.id = this.assignId();
+  this.pizzas.push(pizza);
+};
+Receipt.prototype.assignId = function () {
+  this.currentId += 1;
+  return this.currentId;
+};
+Receipt.prototype.findPizza = function (id) {
+  for (let i = 0; i < this.pizzas.length; i++) {
+    if (this.pizzas[i].id == id) {
+      return this.pizzas[i];
+    }
+  }
+  return false;
+};
 // Business Logic for Pizza
 function Pizza(name, size) {
   this.name = name;
@@ -48,9 +69,34 @@ function Topping(cheese, meat, veggies) {
   this.veggies = veggies;
 }
 // User Interface Logic
-//let pizzaOrder = new Pizza(); /// idk if this needs to be here
+let receipt = new Receipt();
 
+function displayOrderDetails(orderToDisplay) {
+  let orderTotal = $(".total");
+  let htmlForOrderInfo = "";
+  orderToDisplay.pizzas.forEach(function (pizza) {
+    htmlForOrderInfo += "<p id=" + pizza.id + ">" + pizza.name + "</p>";
+  });
+  orderTotal.html(htmlForOrderInfo);
+}
+function showOrder(pizzaId) {
+  const pizza = receipt.findPizza(pizzaId);
+  $(".total").show();
+  $(".order-name").text(pizza.name);
+  $(".pizzasize").text(pizza.size);
+  pizza.toppings.forEach(function (topping) {
+    $(".chosen-cheese").text(topping.cheese);
+    $(".chosen-protein").text(topping.meat);
+    $(".chosen-veggies").text(topping.veggies);
+  });
+}
+function attachOrderListeners(pizzaId) {
+  $(".receipt").on("click", "p", function () {
+    showOrder(this.id);
+  });
+}
 $(document).ready(function () {
+  attachOrderListeners();
   $("form#pizza-order").submit(function (event) {
     event.preventDefault();
     const inputtedName = $("input#name").val();
@@ -68,9 +114,10 @@ $(document).ready(function () {
     newPizzaOrder.toppingPrice();
     newPizzaOrder.pizzaSizePrice();
     newPizzaOrder.addTotal();
-    $(".total").text(
-      inputtedName + ", your total is: $" + newPizzaOrder.grandTotal
-    );
+    displayOrderDetails(receipt);
+    // $(".total").text(
+    //   inputtedName + ", your total is: $" + newPizzaOrder.grandTotal
+    // );
     console.log(newPizzaOrder);
     console.log(newPizzaOrder.toppings);
   });
