@@ -1,17 +1,17 @@
 // Business Logic for Receipt
-function Receipt() {
+function Cart() {
   this.pizzas = [];
   this.currentId = 0;
 }
-Receipt.prototype.addPizza = function (pizza) {
+Cart.prototype.addPizza = function (pizza) {
   pizza.id = this.assignId();
   this.pizzas.push(pizza);
 };
-Receipt.prototype.assignId = function () {
+Cart.prototype.assignId = function () {
   this.currentId += 1;
   return this.currentId;
 };
-Receipt.prototype.findPizza = function (id) {
+Cart.prototype.findPizza = function (id) {
   for (let i = 0; i < this.pizzas.length; i++) {
     if (this.pizzas[i].id == id) {
       return this.pizzas[i];
@@ -30,11 +30,6 @@ function Pizza(name, size) {
 Pizza.prototype.addToppings = function (topping) {
   this.toppings.push(topping);
 };
-// function Topping(cheese, meat, veggies) {
-//   this.cheese = cheese;
-//   this.meat = meat;
-//   this.veggies = veggies;
-// }
 Pizza.prototype.toppingPrice = function () {
   if (this.toppings.length >= 5) {
     return (this.total += 15);
@@ -59,9 +54,9 @@ Pizza.prototype.addTotal = function () {
   //add tax and delivery fee
   return (this.grandTotal += this.total);
 };
-Pizza.prototype.showTotal = function () {
-  return this.name + ", your total is: $" + this.grandTotal;
-};
+// Pizza.prototype.showTotal = function () {
+//   return this.name + ", your total is: $" + this.grandTotal;
+// };
 //Business Logic for Topping()
 function Topping(cheese, meat, veggies) {
   this.cheese = cheese;
@@ -69,29 +64,36 @@ function Topping(cheese, meat, veggies) {
   this.veggies = veggies;
 }
 // User Interface Logic
-let receipt = new Receipt();
+let pizzaReceipt = new Cart();
 
 function displayOrderDetails(orderToDisplay) {
-  let orderTotal = $(".total");
+  let orderTotal = $("ul#pizzatotals");
   let htmlForOrderInfo = "";
   orderToDisplay.pizzas.forEach(function (pizza) {
-    htmlForOrderInfo += "<p id=" + pizza.id + ">" + pizza.name + "</p>";
+    htmlForOrderInfo +=
+      "<li id=" +
+      pizza.id +
+      ">" +
+      pizza.name +
+      ", your total is: $" +
+      pizza.grandTotal +
+      "</li>";
   });
   orderTotal.html(htmlForOrderInfo);
 }
 function showOrder(pizzaId) {
-  const pizza = receipt.findPizza(pizzaId);
-  $(".total").show();
-  $(".order-name").text(pizza.name);
-  $(".pizzasize").text(pizza.size);
-  pizza.toppings.forEach(function (topping) {
+  const pie = pizzaReceipt.findPizza(pizzaId);
+  $(".receipt").show();
+  $(".order-name").text(pie.name);
+  $(".pizzasize").text(pie.size);
+  pie.toppings.forEach(function (topping) {
     $(".chosen-cheese").text(topping.cheese);
     $(".chosen-protein").text(topping.meat);
     $(".chosen-veggies").text(topping.veggies);
   });
 }
-function attachOrderListeners(pizzaId) {
-  $(".receipt").on("click", "p", function () {
+function attachOrderListeners() {
+  $("ul#pizzatotals").on("click", "li", function () {
     showOrder(this.id);
   });
 }
@@ -114,11 +116,12 @@ $(document).ready(function () {
     newPizzaOrder.toppingPrice();
     newPizzaOrder.pizzaSizePrice();
     newPizzaOrder.addTotal();
-    displayOrderDetails(receipt);
+    pizzaReceipt.addPizza(newPizzaOrder);
+    displayOrderDetails(pizzaReceipt);
     // $(".total").text(
     //   inputtedName + ", your total is: $" + newPizzaOrder.grandTotal
     // );
-    console.log(newPizzaOrder);
-    console.log(newPizzaOrder.toppings);
+    // console.log(newPizzaOrder);
+    // console.log(newPizzaOrder.toppings);
   });
 });
