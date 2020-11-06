@@ -15,6 +15,7 @@ Purpose usage, detailed explanation what is does and any other information you w
 | Test                                       | Expect                                               |
 | ------------------------------------------ | ---------------------------------------------------- |
 | It will store user input for pizza created | Pizza(size, toppings).toEqual("small", "pepperoni"); |
+| It will add user selected pizza size       | Pizza(size).toEqual("small");                        |
 
 ## Setup/Installation Requirements
 
