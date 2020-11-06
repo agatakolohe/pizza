@@ -1,4 +1,4 @@
-// Business Logic for Receipt
+// Business Logic for Cart()
 function Cart() {
   this.pizzas = [];
   this.currentId = 0;
@@ -19,7 +19,8 @@ Cart.prototype.findPizza = function (id) {
   }
   return false;
 };
-// Business Logic for Pizza
+
+// Business Logic for Pizza()
 function Pizza(name, size) {
   this.name = name;
   this.size = size;
@@ -31,12 +32,8 @@ Pizza.prototype.addToppings = function (topping) {
   this.toppings.push(topping);
 };
 Pizza.prototype.toppingPrice = function () {
-  if (this.toppings.length >= 5) {
+  if ((this.toppings.length = 1)) {
     return (this.total += 15);
-  } else if (this.toppings.length === 0) {
-    return confirm("Are you sure you don't want any toppings?");
-  } else if (this.toppings.length <= 5) {
-    return (this.total += 10);
   }
 };
 Pizza.prototype.pizzaSizePrice = function () {
@@ -51,18 +48,18 @@ Pizza.prototype.pizzaSizePrice = function () {
   }
 };
 Pizza.prototype.addTotal = function () {
-  //add tax and delivery fee
   return (this.grandTotal += this.total);
 };
-// Pizza.prototype.showTotal = function () {
-//   return this.name + ", your total is: $" + this.grandTotal;
-// };
+
 //Business Logic for Topping()
-function Topping(cheese, meat, veggies) {
+function Topping(cheese, meat, veggies, extras, sauces) {
   this.cheese = cheese;
   this.meat = meat;
   this.veggies = veggies;
+  this.extras = extras;
+  this.sauces = sauces;
 }
+
 // User Interface Logic
 let pizzaReceipt = new Cart();
 
@@ -77,7 +74,7 @@ function displayOrderDetails(orderToDisplay) {
       pizza.name +
       ", your total is: $" +
       pizza.grandTotal +
-      "</li>";
+      ". Click here to see order details.</li>";
   });
   orderTotal.html(htmlForOrderInfo);
 }
@@ -90,6 +87,8 @@ function showOrder(pizzaId) {
     $(".chosen-cheese").text(topping.cheese);
     $(".chosen-protein").text(topping.meat);
     $(".chosen-veggies").text(topping.veggies);
+    $(".chosen-extras").text(topping.extras);
+    $(".chosen-sauces").text(topping.sauces);
   });
 }
 function attachOrderListeners() {
@@ -106,11 +105,15 @@ $(document).ready(function () {
     const inputtedCheese = $("input:radio[name=cheese]:checked").val();
     const inputtedProtein = $("input:radio[name=protein]:checked").val();
     const inputtedVeggies = $("input:radio[name=veggies]:checked").val();
+    const inputtedExtras = $("input:radio[name=extras]:checked").val();
+    const inputtedSauces = $("input:radio[name=sauces]:checked").val();
     let newPizzaOrder = new Pizza(inputtedName, inputtedPizzaSize);
     let newToppings = new Topping(
       inputtedCheese,
       inputtedProtein,
-      inputtedVeggies
+      inputtedVeggies,
+      inputtedExtras,
+      inputtedSauces
     );
     newPizzaOrder.addToppings(newToppings);
     newPizzaOrder.toppingPrice();
@@ -118,10 +121,5 @@ $(document).ready(function () {
     newPizzaOrder.addTotal();
     pizzaReceipt.addPizza(newPizzaOrder);
     displayOrderDetails(pizzaReceipt);
-    // $(".total").text(
-    //   inputtedName + ", your total is: $" + newPizzaOrder.grandTotal
-    // );
-    // console.log(newPizzaOrder);
-    // console.log(newPizzaOrder.toppings);
   });
 });

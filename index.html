@@ -1,107 +1,216 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery-3.5.1.js"></script>
-    <script src="js/scripts.js"></script> 
+    <script src="js/scripts.js"></script>
     <title>Pizza Parlor</title>
   </head>
+
   <body>
-    <div class-"container">
+    <div class="container">
       <div class="jumbotron">
         <h1>Pizza Parlor</h1>
-        <img src="#">
+        <img src="#" />
       </div>
       <form id="pizza-order">
         <div class="form-group">
-          <input id="name" class="form-control" type="text" placeholder="Order Name">
-          <label for="name">Order Name: </label>
+          <input
+            id="name"
+            class="form-control"
+            type="text"
+            placeholder="Order Name:"
+          />
+          <label for="name">Enter a name for the order</label>
         </div>
-        <h5>Pizza Size:</h5>
-        <div class="radio">
-          <label>
-            <input type="radio" name="pizza-size" value="small">
-            Small <strong>Price:</strong> $10
-          </label>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Pizza Size:</h5>
+                <div class="card-text">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="pizza-size" value="small" />
+                      Small <strong>Price:</strong> $10
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="pizza-size" value="medium" />
+                      Medium <strong>Price:</strong> $20
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="pizza-size" value="large" />
+                      Large <strong>Price:</strong> $30
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Cheese:</h5>
+                <div class="card-text">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="cheese" value="mozz" />
+                      Mozzerella
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="cheese" value="vegan" />
+                      Vegan Cheese
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="cheese" value="nocheese" />
+                      No Cheese
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="pizza-size" value="medium">
-            Medium <strong>Price:</strong> $20
-          </label>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Protein:</h5>
+                <div class="card-text">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="protein" value="pepperoni" />
+                      Pepperoni
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="protein" value="salami" />
+                      Salami
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="protein" value="Chicken" />
+                      Chicken
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Veggies:</h5>
+                <div class="card-text">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="veggies" value="shrooms" />
+                      Mushrooms
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="veggies" value="peppers" />
+                      Peppers
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="veggies" value="tomatoes" />
+                      Tomatoes
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="pizza-size" value="large">
-            Large <strong>Price:</strong> $30
-          </label>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Extras:</h5>
+                <div class="card-text">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="extras" value="pineapple" />
+                      Pineapple
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="extras" value="bacon" />
+                      Bacon
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="extras" value="spinach" />
+                      Spinach
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Sauces:</h5>
+                <div class="card-text">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="sauces" value="ranch" />
+                      Ranch
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="sauces" value="balsamic" />
+                      Balsamic
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="sauces" value="hotsauce" />
+                      Hot Sauce
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h5>Toppings:</h5>
-        <h6>Cheese:</h6>
-        <div class="radio">
-          <label>
-            <input type="radio" name="cheese" value="mozz">
-            Mozzerella
-          </label>
+        <div class="text-center">
+          <button type="submit" class="btn btn-outline-dark">
+            Place your order
+          </button>
         </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="cheese" value="vegan">
-            Vegan
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="cheese" value="0">
-            No Cheese
-          </label>
-        </div>
-        <h6>Protein</h6>
-        <div class="radio">
-          <label>
-            <input type="radio" name="protein" value="pepperoni">
-            Pepperoni
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="protein" value="salami">
-            Salami
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="protein" value="Chicken">
-            Chicken
-          </label>
-        </div>
-        <h6>Veggies</h6>
-        <div class="radio">
-          <label>
-            <input type="radio" name="veggies" value="shrooms">
-            Mushrooms
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="veggies" value="peppers">
-            Peppers
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="veggies" value="tomatoes">
-            Tomatoes
-          </label>
-        </div>
-        <button type="submit" class="btn btn-outline-dark">Place your order</button>
       </form>
-      <ul id="pizzatotals"></ul>
-      <div class="receipt">
-        <p>Order Name: <span class="order-name"></span></p>
-        <p>Pizza Size: <span class="pizzasize"></span></p>
-        <p>Toppings: <span class="chosen-cheese"></span>, <span class="chosen-protein"></span>, <span class="chosen-veggies"></span></p>
+      <div class="jumbotron">
+        <ul id="pizzatotals"></ul>
+        <div class="receipt">
+          <p>Order Name: <span class="order-name"></span></p>
+          <p>Pizza Size: <span class="pizzasize"></span></p>
+          <p>
+            Toppings: <span class="chosen-cheese"></span>,
+            <span class="chosen-protein"></span>,
+            <span class="chosen-veggies"></span>,
+            <span class="chosen-extras"></span>,
+            <span class="chosen-sauces"></span>
+          </p>
+        </div>
       </div>
     </div>
   </body>
