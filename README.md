@@ -12,18 +12,20 @@ Purpose usage, detailed explanation what is does and any other information you w
 
 ### Describe: Pizza()
 
-| Test                                                   | Expect                                               |
-| ------------------------------------------------------ | ---------------------------------------------------- |
-| It will store user input for pizza created             | Pizza(size, toppings).toEqual("small", "pepperoni"); |
-| It will add price of user selected pizza size to total | Pizza(size, total).toEqual("small", 10);             |
-| It will alert use if no pizza size has been selected   | Pizza().toEqual(alert("Please choose a size"));      |
+| Test                                                       | Expect                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| It will store user input for pizza created                 | Pizza(size, toppings).toEqual("small", "pepperoni"); |
+| It will add price of user selected pizza size to total     | Pizza(size, total).toEqual("small", 10);             |
+| It will alert use if no pizza size has been selected       | Pizza().toEqual(alert("Please choose a size"));      |
+| It will return a grand total price of complete pizza order | Pizza(grandTotal).toEqual(20);                       |
 
 ### Describe: Topping()
 
-| Test                                              | Expect                                     |
-| ------------------------------------------------- | ------------------------------------------ |
-| It will store user input for toppings selected    | Topping(toppings).toEqual("pepperoni");    |
-| It will add price for amount of toppings selected | Topping(toppings, price).toEqual([3], 10); |
+| Test                                                          | Expect                                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| It will store user input for toppings selected                | Topping(toppings).toEqual("pepperoni");                                  |
+| It will add price for amount of toppings selected             | Topping(toppings, price).toEqual([3], 10);                               |
+| It will ask user to confirm if there is no input for toppings | Topping().toEqual(confirm("Are you sure you don't want any toppings?")); |
 
 ## Setup/Installation Requirements
 
