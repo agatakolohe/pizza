@@ -7,9 +7,20 @@ function Pizza(size) {
 Pizza.prototype.addToppings = function (topping) {
   this.toppings.push(topping);
 };
-function Topping(topping) {
-  this.topping = topping;
+function Topping(cheese, meat, veggies) {
+  this.cheese = cheese;
+  this.meat = meat;
+  this.veggies = veggies;
 }
+Pizza.prototype.toppingPrice = function () {
+  if (this.toppings.length >= 5) {
+    return (this.total += 15);
+  } else if ((this.toppings.length = 0)) {
+    return confirm("Are you sure you don't want any toppings?");
+  } else if (this.toppings.length <= 5) {
+    return (this.total += 10);
+  }
+};
 Pizza.prototype.pizzaSizePrice = function () {
   if (this.size === "large") {
     return (this.total += 30);
