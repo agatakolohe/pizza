@@ -12,10 +12,11 @@ Purpose usage, detailed explanation what is does and any other information you w
 
 ### Describe: functionName()
 
-| Test                                       | Expect                                               |
-| ------------------------------------------ | ---------------------------------------------------- |
-| It will store user input for pizza created | Pizza(size, toppings).toEqual("small", "pepperoni"); |
-| It will add user selected pizza size       | Pizza(size).toEqual("small");                        |
+| Test                                                   | Expect                                               |
+| ------------------------------------------------------ | ---------------------------------------------------- |
+| It will store user input for pizza created             | Pizza(size, toppings).toEqual("small", "pepperoni"); |
+| It will add price of user selected pizza size to total | Pizza(size, total).toEqual("small", 10);             |
+| It will alert use if no pizza size has been selected   | Pizza().toEqual(alert("Please choose a size"));      |
 
 ## Setup/Installation Requirements
 
