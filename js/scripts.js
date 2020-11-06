@@ -1,7 +1,7 @@
 // Business Logic for Pizza
-function Pizza(size, toppings) {
+function Pizza(size) {
   this.size = size;
-  this.toppings = toppings;
+  this.toppings = [];
   this.total = 0;
 }
 Pizza.prototype.pizzaSizePrice = function () {
@@ -15,3 +15,7 @@ Pizza.prototype.pizzaSizePrice = function () {
     return alert("Please choose a size");
   }
 };
+
+function Topping(topping) {
+  this.topping = topping;
+}
