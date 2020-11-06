@@ -1,5 +1,5 @@
 // Business Logic for Pizza
-function Pizza(size, name) {
+function Pizza(name, size) {
   this.name = name;
   this.size = size;
   this.toppings = [];
@@ -52,17 +52,26 @@ function Topping(cheese, meat, veggies) {
 
 $(document).ready(function () {
   $("form#pizza-order").submit(function (event) {
-    event.PreventDefault();
+    event.preventDefault();
     const inputtedName = $("input#name").val();
     const inputtedPizzaSize = $("input:radio[name=pizza-size]:checked").val();
-    const inputtedCheese = $("input:checkbox[name=cheese]:checked").val();
-    const inputtedProtein = $("input:checkbox[name=protein]:checked").val();
-    const inputtedVeggies = $("input:checkbox[name=veggies]:checked").val();
+    const inputtedCheese = $("input:radio[name=cheese]:checked").val();
+    const inputtedProtein = $("input:radio[name=protein]:checked").val();
+    const inputtedVeggies = $("input:radio[name=veggies]:checked").val();
     let newPizzaOrder = new Pizza(inputtedName, inputtedPizzaSize);
     let newToppings = new Topping(
       inputtedCheese,
       inputtedProtein,
       inputtedVeggies
     );
+    newPizzaOrder.addToppings(newToppings);
+    newPizzaOrder.toppingPrice();
+    newPizzaOrder.pizzaSizePrice();
+    newPizzaOrder.addTotal();
+    $(".total").text(
+      inputtedName + ", your total is: $" + newPizzaOrder.grandTotal
+    );
+    console.log(newPizzaOrder);
+    console.log(newPizzaOrder.toppings);
   });
 });
