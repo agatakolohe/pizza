@@ -4,6 +4,12 @@ function Pizza(size) {
   this.toppings = [];
   this.total = 0;
 }
+Pizza.prototype.addToppings = function (topping) {
+  this.toppings.push(topping);
+};
+function Topping(topping) {
+  this.topping = topping;
+}
 Pizza.prototype.pizzaSizePrice = function () {
   if (this.size === "large") {
     return (this.total += 30);
@@ -15,7 +21,3 @@ Pizza.prototype.pizzaSizePrice = function () {
     return alert("Please choose a size");
   }
 };
-
-function Topping(topping) {
-  this.topping = topping;
-}
