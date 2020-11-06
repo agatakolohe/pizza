@@ -37,3 +37,6 @@ Pizza.prototype.addTotal = function () {
   //add tax and delivery fee
   return (this.grandTotal += this.total);
 };
+Pizza.prototype.showTotal = function () {
+  return "Your Total is: $" + this.grandTotal;
+};

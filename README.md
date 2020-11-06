@@ -18,6 +18,7 @@ Purpose usage, detailed explanation what is does and any other information you w
 | It will add price of user selected pizza size to total     | Pizza(size, total).toEqual("small", 10);             |
 | It will alert use if no pizza size has been selected       | Pizza().toEqual(alert("Please choose a size"));      |
 | It will return a grand total price of complete pizza order | Pizza(grandTotal).toEqual(20);                       |
+| It will display user's grand total as a string             | Pizza(displayTotal).toEqual("Your total is: \$20")   |
 
 ### Describe: Topping()
 
