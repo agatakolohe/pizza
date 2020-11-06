@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/scripts.js"></script> 
+    <title>Pizza Parlor</title>
+  </head>
+  <body>
+    <div class-"container">
+      <div class="jumbotron">
+        <h1>Pizza Parlor</h1>
+        <img src="#">
+      </div>
+      <form id="pizza-order">
+        <div class="form-group">
+          <input id="name" class="form-control" type="text" placeholder="Order Name">
+          <label for="name">Order Name: </label>
+        </div>
+        <h5>Pizza Size:</h5>
+        <div class="radio">
+          <label>
+            <input type="radio" name="pizza-size" value="small">
+            Small <strong>Price:</strong> $10
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="pizza-size" value="medium">
+            Medium <strong>Price:</strong> $20
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="pizza-size" value="large">
+            Large <strong>Price:</strong> $30
+          </label>
+        </div>
+        <h5>Toppings:</h5>
+        <div class="form-group">
+          <h6>Cheese:</h6>
+          <input type="checkbox" name="cheese" value="mozz"> Mozzarella <br>
+          <input type="checkbox" name="cheese" value="vegan"> Vegan Cheese <br>
+          <input type="checkbox" name="cheese" value="0"> No Cheese <br>
+        </div>
+        <div class="form-group">
+          <h6>Protein:</h6>
+          <input type="checkbox" name="protein" value="pepperoni"> Pepperoni <br>
+          <input type="checkbox" name="protein" value="salami"> Salami <br>
+          <input type="checkbox" name="protein" value="chicken"> Chicken <br>
+        </div>
+        <div class="form-group">
+          <h6>Veggies:</h6>
+          <input type="checkbox" name="veggies" value="shrooms"> Mushrooms <br>
+          <input type="checkbox" name="veggies" value="peppers"> Peppers <br>
+          <input type="checkbox" name="veggies" value="tomatoes"> Tomatoes <br>
+        </div>
+        <button type="submit" class="btn btn-outline-dark">Place your order</button>
+      </form>
+      <div class="receipt"></div>
+    </div>
+  </body>
+</html>

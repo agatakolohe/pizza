@@ -1,5 +1,6 @@
 // Business Logic for Pizza
-function Pizza(size) {
+function Pizza(size, name) {
+  this.name = name;
   this.size = size;
   this.toppings = [];
   this.total = 0;
@@ -38,5 +39,5 @@ Pizza.prototype.addTotal = function () {
   return (this.grandTotal += this.total);
 };
 Pizza.prototype.showTotal = function () {
-  return "Your Total is: $" + this.grandTotal;
+  return this.name + ", your total is: $" + this.grandTotal;
 };
