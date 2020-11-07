@@ -23,10 +23,10 @@ Fourth independent project for Epicodus. It is a website where a user can order 
 
 ### Describe: Topping()
 
-| Test                                                          | Expect                                  |
-| ------------------------------------------------------------- | --------------------------------------- |
-| It will store user input for toppings selected                | Topping(toppings).toEqual("pepperoni"); |
-| It will ask user to confirm if there is no input for toppings | Topping().toEqual(alert("Surprise!"));  |
+| Test                                           | Expect                                  |
+| ---------------------------------------------- | --------------------------------------- |
+| It will store user input for toppings selected | Topping(toppings).toEqual("pepperoni"); |
+| It will alert the user                         | Topping().toEqual(alert("Surprise!"));  |
 
 ## Setup/Installation Requirements
 
