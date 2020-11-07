@@ -33,7 +33,7 @@ Pizza.prototype.addToppings = function (topping) {
 };
 Pizza.prototype.toppingPrice = function () {
   if ((this.toppings.length = 1)) {
-    return (this.total += 15);
+    return alert("Surprise! Toppings are FREE!");
   }
 };
 Pizza.prototype.pizzaSizePrice = function () {
