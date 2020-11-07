@@ -6,7 +6,7 @@
 
 ## Description
 
-Fourth independent project for Epicodus. It is a website where a user can order a pizza. The user can choose which size and toppings they would like for their pizza. This project demonstrate what I have learned with object-oriented JavaScript. I created a form that will take user input and create constructors and protoype functions to determine the pizze order and price.
+Fourth independent project for Epicodus. It is a website where a user can order a pizza. The user can choose which size and toppings they would like for their pizza. This project demonstrates what I have learned with object-oriented JavaScript. I created a form that will take user input and create constructors and protoype functions to determine the pizze order and price.
 
 ## Specifications
 
@@ -23,11 +23,10 @@ Fourth independent project for Epicodus. It is a website where a user can order 
 
 ### Describe: Topping()
 
-| Test                                                          | Expect                                     |
-| ------------------------------------------------------------- | ------------------------------------------ |
-| It will store user input for toppings selected                | Topping(toppings).toEqual("pepperoni");    |
-| It will add price for amount of toppings selected             | Topping(toppings, price).toEqual([3], 10); |
-| It will ask user to confirm if there is no input for toppings | Topping().toEqual(alert("Surprise!"));     |
+| Test                                                          | Expect                                  |
+| ------------------------------------------------------------- | --------------------------------------- |
+| It will store user input for toppings selected                | Topping(toppings).toEqual("pepperoni"); |
+| It will ask user to confirm if there is no input for toppings | Topping().toEqual(alert("Surprise!"));  |
 
 ## Setup/Installation Requirements
 
@@ -38,7 +37,7 @@ Fourth independent project for Epicodus. It is a website where a user can order 
 
 ##### View Online
 
-- To view in browser click the GH-Pages link: [Name of App](URL)
+- To view in browser click the GH-Pages link: [Pizza Parlor](URL)
 - Type your order name into the text box
 - Select pizza size and toppings
 - Click Place your order
