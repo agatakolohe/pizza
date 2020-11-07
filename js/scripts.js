@@ -1,4 +1,5 @@
 // Business Logic for Cart()
+
 function Cart() {
   this.pizzas = [];
   this.currentId = 0;
@@ -21,6 +22,7 @@ Cart.prototype.findPizza = function (id) {
 };
 
 // Business Logic for Pizza()
+
 function Pizza(name, size) {
   this.name = name;
   this.size = size;
@@ -52,6 +54,7 @@ Pizza.prototype.addTotal = function () {
 };
 
 //Business Logic for Topping()
+
 function Topping(cheese, meat, veggies, extras, sauces) {
   this.cheese = cheese;
   this.meat = meat;
@@ -61,6 +64,7 @@ function Topping(cheese, meat, veggies, extras, sauces) {
 }
 
 // User Interface Logic
+
 let pizzaReceipt = new Cart();
 
 function displayOrderDetails(orderToDisplay) {

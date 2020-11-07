@@ -6,8 +6,8 @@
   background-color: #007272;
 }
 .jumboimg {
-  height: 50%;
-  width: 50%;
+  height: 60%;
+  width: 60%;
   border: solid #00bebe;
   border-width: 5px;
 }
@@ -18,6 +18,7 @@ body {
 .card {
   color: darkcyan;
   border-color: #00bebebe;
+  display: flex;
 }
 button {
   margin: 30px;
