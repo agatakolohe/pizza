@@ -68,8 +68,6 @@ If any errors or bugs occur use Chrome DevTools or please email me, <agatakolohe
 
 ## Technologies Used
 
-CHANGE IF NECESSARY
-
 - HTML
 - CSS
 - Bootstrap
