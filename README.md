@@ -10,7 +10,7 @@ Fourth independent project for Epicodus. It is a website where a user can order 
 
 ## Specifications
 
-### Describe: Pizza()
+### Describe: Cart()
 
 | Test                               | Expect                              |
 | ---------------------------------- | ----------------------------------- |
