@@ -38,14 +38,21 @@ ul {
   width: 40%;
   float: right;
 }
+.pina {
+  height: 35%;
+  width: 35%;
+}
 .saucey {
   height: 30%;
   width: 30%;
   float: right;
 }
-.pina {
-  margin: 5px;
-}
+
 .heartpizza {
   margin: 13px;
+}
+#pizzatotals:hover {
+  color: turquoise;
+  font-weight: bold;
+  cursor: grab;
 }

@@ -38,7 +38,11 @@ Pizza.prototype.verifyName = function () {
   if (this.name === "") {
     return alert("Please enter a name of the order");
   } else {
-    return alert("Thank you " + this.name + "! Enjoy your pizza!");
+    return alert(
+      "Thank you " +
+        this.name +
+        "! Your total is display at the bottom of the page. Enjoy your pizza!"
+    );
   }
 };
 Pizza.prototype.pizzaSizePrice = function () {
