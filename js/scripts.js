@@ -64,8 +64,8 @@ Pizza.prototype.extrasPrice = function () {
     return (this.total += 5);
   } else if (this.extras === "bacon") {
     return (this.total += 3);
-  } else {
-    return (this.total += 2);
+  } else if (this.extras === "spinach") {
+    return (this.total += 1);
   }
 };
 Pizza.prototype.saucesPrice = function () {
@@ -73,7 +73,7 @@ Pizza.prototype.saucesPrice = function () {
     return (this.total += 5);
   } else if (this.sauces === "balsamic") {
     return (this.total += 3);
-  } else {
+  } else if (this.sauces === "hotsauce") {
     return (this.total += 2);
   }
 };
@@ -145,6 +145,5 @@ $(document).ready(function () {
     newPizzaOrder.addTotal();
     pizzaCart.addPizza(newPizzaOrder);
     displayOrderDetails(pizzaCart);
-    console.log(newPizzaOrder.name);
   });
 });

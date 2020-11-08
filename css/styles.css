@@ -20,10 +20,32 @@ body {
   color: darkcyan;
   border-color: #00bebebe;
   display: flex;
+  margin: 5px;
 }
 button {
   margin: 30px;
 }
 ul {
   text-align: left;
+}
+
+.cheesey,
+.shroomy,
+.lami,
+.pina,
+.heartpizza {
+  height: 40%;
+  width: 40%;
+  float: right;
+}
+.saucey {
+  height: 30%;
+  width: 30%;
+  float: right;
+}
+.pina {
+  margin: 5px;
+}
+.heartpizza {
+  margin: 13px;
 }

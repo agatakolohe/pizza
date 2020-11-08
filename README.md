@@ -12,21 +12,28 @@ Fourth independent project for Epicodus. It is a website where a user can order 
 
 ### Describe: Pizza()
 
-| Test                                                             | Expect                                                                   |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| It will store user input for pizza created                       | Pizza(name, size, toppings).toEqual("order name", "small", "pepperoni"); |
-| It will add price of user selected pizza size to total           | Pizza(size, total).toEqual("small", 10);                                 |
-| It will alert use if no pizza size has been selected             | Pizza().toEqual(alert("Please choose a size"));                          |
-| It will return a grand total price of complete pizza order       | Pizza(grandTotal).toEqual(20);                                           |
-| It will display user's grand total as a string                   | Pizza(displayTotal).toEqual("Your total is: \$20")                       |
-| It Will display user's full order when user clicks on order name | Pizza(showOrder).toEqual(Pizza Order)                                    |
+| Test                               | Expect                              |
+| ---------------------------------- | ----------------------------------- |
+| It will store pizzas and pizza ids | Cart().toEqual(pizzas, ids);        |
+| It will add pizzas to cart         | Cart(pizza).toEqual(pizza);         |
+| It will assign ids to pizzas       | Cart(id).toEqual(pizza.id);         |
+| It will find pizzas by id          | Cart(find pizza).toEqual(pizza.id); |
 
-### Describe: Topping()
+### Describe: Pizza()
 
-| Test                                           | Expect                                  |
-| ---------------------------------------------- | --------------------------------------- |
-| It will store user input for toppings selected | Topping(toppings).toEqual("pepperoni"); |
-| It will alert the user                         | Topping().toEqual(alert("Surprise!"));  |
+| Test                                                                          | Expect                                                                       |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| It will store user input for pizza created                                    | Pizza(name, size, toppings).toEqual("order name", "small", "pepperoni");     |
+| It will add price of user selected pizza size to total                        | Pizza(size, total).toEqual("small", 10);                                     |
+| It will alert use if no pizza size has been selected                          | Pizza(null pizza size).toEqual(alert("Please choose a size"));               |
+| It will add price for cheese selected to total                                | Pizza("vegan cheese").toEqual(total += 10);                                  |
+| It will add price for extras selected to total                                | Pizza("pineapple").toEqual(total += 5);                                      |
+| It will add price for sauce selected to total                                 | Pizza("ranch").toEqual(total += 5);                                          |
+| It will confirm if no cheese was selected                                     | Pizza("no cheese").toEqual(confirm("Are you sure you don't want cheese?"));  |
+| It will verify if user inputted name for order                                | Pizza(null name entered).toEqual(alert("Please enter a name for the order"); |
+| It will add total selected items to grand total price of complete pizza order | Pizza(grandTotal).toEqual(20);                                               |
+| It will display user's grand total as a string                                | Pizza(displayTotal).toEqual("Your total is: \$20")                           |
+| It will display user's full order when user clicks on order name              | Pizza(showOrder).toEqual(Pizza Order)                                        |
 
 ## Setup/Installation Requirements
 
