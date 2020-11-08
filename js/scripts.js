@@ -23,19 +23,22 @@ Cart.prototype.findPizza = function (id) {
 
 // Business Logic for Pizza()
 
-function Pizza(name, size) {
+function Pizza(name, size, cheese, protein, veggies, extras, sauces) {
   this.name = name;
   this.size = size;
-  this.toppings = [];
+  this.cheese = cheese;
+  this.protein = protein;
+  this.veggies = veggies;
+  this.extras = extras;
+  this.sauces = sauces;
   this.total = 0;
   this.grandTotal = 0;
 }
-Pizza.prototype.addToppings = function (topping) {
-  this.toppings.push(topping);
-};
-Pizza.prototype.toppingPrice = function () {
-  if ((this.toppings.length = 1)) {
-    return alert("Surprise! Toppings are FREE!");
+Pizza.prototype.verifyName = function () {
+  if (this.name === "") {
+    return alert("Please enter a name of the order");
+  } else {
+    return alert("Thank you " + this.name + "! Enjoy your pizza!");
   }
 };
 Pizza.prototype.pizzaSizePrice = function () {
@@ -49,23 +52,38 @@ Pizza.prototype.pizzaSizePrice = function () {
     return alert("Please choose a size");
   }
 };
+Pizza.prototype.cheesePrice = function () {
+  if (this.cheese === "vegancheese") {
+    return (this.total += 10);
+  } else if (this.cheese === "nocheese") {
+    return confirm("Are you sure you don't want cheese?");
+  }
+};
+Pizza.prototype.extrasPrice = function () {
+  if (this.extras === "pineapple") {
+    return (this.total += 5);
+  } else if (this.extras === "bacon") {
+    return (this.total += 3);
+  } else {
+    return (this.total += 2);
+  }
+};
+Pizza.prototype.saucesPrice = function () {
+  if (this.sauces === "ranch") {
+    return (this.total += 5);
+  } else if (this.sauces === "balsamic") {
+    return (this.total += 3);
+  } else {
+    return (this.total += 2);
+  }
+};
 Pizza.prototype.addTotal = function () {
   return (this.grandTotal += this.total);
 };
 
-//Business Logic for Topping()
-
-function Topping(cheese, meat, veggies, extras, sauces) {
-  this.cheese = cheese;
-  this.meat = meat;
-  this.veggies = veggies;
-  this.extras = extras;
-  this.sauces = sauces;
-}
-
 // User Interface Logic
 
-let pizzaReceipt = new Cart();
+let pizzaCart = new Cart();
 
 function displayOrderDetails(orderToDisplay) {
   let orderTotal = $("ul#pizzatotals");
@@ -83,17 +101,15 @@ function displayOrderDetails(orderToDisplay) {
   orderTotal.html(htmlForOrderInfo);
 }
 function showOrder(pizzaId) {
-  const pie = pizzaReceipt.findPizza(pizzaId);
+  const pie = pizzaCart.findPizza(pizzaId);
   $(".receipt").show();
   $(".order-name").text(pie.name);
   $(".pizzasize").text(pie.size);
-  pie.toppings.forEach(function (topping) {
-    $(".chosen-cheese").text(topping.cheese);
-    $(".chosen-protein").text(topping.meat);
-    $(".chosen-veggies").text(topping.veggies);
-    $(".chosen-extras").text(topping.extras);
-    $(".chosen-sauces").text(topping.sauces);
-  });
+  $(".chosen-cheese").text(pie.cheese);
+  $(".chosen-protein").text(pie.protein);
+  $(".chosen-veggies").text(pie.veggies);
+  $(".chosen-extras").text(pie.extras);
+  $(".chosen-sauces").text(pie.sauces);
 }
 function attachOrderListeners() {
   $("ul#pizzatotals").on("click", "li", function () {
@@ -111,19 +127,24 @@ $(document).ready(function () {
     const inputtedVeggies = $("input:radio[name=veggies]:checked").val();
     const inputtedExtras = $("input:radio[name=extras]:checked").val();
     const inputtedSauces = $("input:radio[name=sauces]:checked").val();
-    let newPizzaOrder = new Pizza(inputtedName, inputtedPizzaSize);
-    let newToppings = new Topping(
+    let newPizzaOrder = new Pizza(
+      inputtedName,
+      inputtedPizzaSize,
       inputtedCheese,
       inputtedProtein,
       inputtedVeggies,
       inputtedExtras,
       inputtedSauces
     );
-    newPizzaOrder.addToppings(newToppings);
-    newPizzaOrder.toppingPrice();
+
     newPizzaOrder.pizzaSizePrice();
+    newPizzaOrder.cheesePrice();
+    newPizzaOrder.extrasPrice();
+    newPizzaOrder.saucesPrice();
+    newPizzaOrder.verifyName();
     newPizzaOrder.addTotal();
-    pizzaReceipt.addPizza(newPizzaOrder);
-    displayOrderDetails(pizzaReceipt);
+    pizzaCart.addPizza(newPizzaOrder);
+    displayOrderDetails(pizzaCart);
+    console.log(newPizzaOrder.name);
   });
 });

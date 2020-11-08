@@ -1,5 +1,6 @@
 .receipt {
   display: none;
+  text-align: left;
 }
 .jumbotron {
   text-align: center;
@@ -22,4 +23,7 @@ body {
 }
 button {
   margin: 30px;
+}
+ul {
+  text-align: left;
 }
